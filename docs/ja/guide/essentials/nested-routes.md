@@ -1,11 +1,11 @@
-# Nested Routes
+# ネストしたルート
 
 <VueSchoolLink 
   href="https://vueschool.io/lessons/nested-routes"
   title="Learn about nested routes"
 />
 
-Some application's UIs are composed of components that are nested multiple levels deep. In this case, it is very common that the segments of a URL corresponds to a certain structure of nested components, for example:
+アプリケーションの UI は、複数レベルの深さでネストしたコンポーネントで構成されているものがあります。この場合、URL のセグメントがネストしたコンポーネントの構造に対応していることは、とてもよくあることです。例えば:
 
 ```
 /user/johnny/profile                     /user/johnny/posts
@@ -18,9 +18,9 @@ Some application's UIs are composed of components that are nested multiple level
 +------------------+                  +-----------------+
 ```
 
-With Vue Router, you can express this relationship using nested route configurations.
+Vue Router ではネストしたルート構成を使ってこの関係を表現することができます。
 
-Given the app we created in the last chapter:
+前章で作成したアプリがあるとします:
 
 ```html
 <div id="app">
@@ -37,7 +37,7 @@ const User = {
 const routes = [{ path: '/user/:id', component: User }]
 ```
 
-The `<router-view>` here is a top-level `router-view`. It renders the component matched by a top level route. Similarly, a rendered component can also contain its own, nested `<router-view>`. For example, if we add one inside the `User` component's template:
+ここでの `<router-view>` はトップレベルの `router-view` です。トップレベルのルートにマッチしたコンポーネントをレンダリングします。同じように、レンダリングされたコンポーネントは、それ自身のネストした `<router-view>` を含むことができます。例えば、`User` コンポーネントのテンプレートの中に1つ追加するとします:
 
 ```js
 const User = {
@@ -50,7 +50,7 @@ const User = {
 }
 ```
 
-To render components into this nested `router-view`, we need to use the `children` option in any of the routes:
+このネストした `router-view` にコンポーネントをレンダリングするには、いずれかのルートで `children` オプションを使う必要があります:
 
 ```js
 const routes = [
@@ -75,11 +75,11 @@ const routes = [
 ]
 ```
 
-**Note that nested paths that start with `/` will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.**
+**`/` ではじまるネストしたパスは、ルートパスとして扱われます。これにより、ネストした URL を使うことなく、コンポーネントのネストを活用することができます。**
 
-As you can see the `children` option is just another Array of routes like `routes` itself. Therefore, you can keep nesting views as much as you need.
+ここまで見てきたように、この `children` オプションは `routes` 自身と同じようにルートの配列でしかありません。そのため、必要なだけビューをネストすることができます。
 
-At this point, with the above configuration, when you visit `/user/eduardo`, nothing will be rendered inside `User`'s `router-view`, because no nested route is matched. Maybe you do want to render something there. In such case you can provide an empty nested path:
+この時点では、上記の構成で、`/user/eduardo` にアクセスしても、`User` の `router-view` にはネストしたルートがマッチしないため、なにもレンダリングされません。もしかすると、そこでなにかをレンダリングしたいかもしれません。そのような場合には、空のネストしたパスを提供することができます:
 
 ```js
 const routes = [
@@ -97,4 +97,4 @@ const routes = [
 ]
 ```
 
-A working demo of this example can be found [here](https://codesandbox.io/s/nested-views-vue-router-4-examples-hl326?initialpath=%2Fusers%2Feduardo).
+この例の動作デモは [こちら](https://codesandbox.io/s/nested-views-vue-router-4-examples-hl326?initialpath=%2Fusers%2Feduardo) にあります。

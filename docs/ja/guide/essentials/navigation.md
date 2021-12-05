@@ -2,11 +2,11 @@
 sidebarDepth: 0
 ---
 
-# Programmatic Navigation
+# プログラムによるナビゲーション
 
 Aside from using `<router-link>` to create anchor tags for declarative navigation, we can do this programmatically using the router's instance methods.
 
-## Navigate to a different location
+## 別のロケーションに移動
 
 **Note: Inside of a Vue instance, you have access to the router instance as `$router`. You can therefore call `this.$router.push`.**
 
@@ -57,7 +57,7 @@ Since the prop `to` accepts the same kind of object as `router.push`, the exact 
 
 `router.push` and all the other navigation methods return a _Promise_ that allows us to wait til the navigation is finished and to know if it succeeded or failed. We will talk more about that in [Navigation Handling](../advanced/navigation-failures.md).
 
-## Replace current location
+## 現在のロケーションを置換
 
 It acts like `router.push`, the only difference is that it navigates without pushing a new history entry, as its name suggests - it replaces the current entry.
 
@@ -73,7 +73,7 @@ router.push({ path: '/home', replace: true })
 router.replace({ path: '/home' })
 ```
 
-## Traverse history
+## 履歴の横断
 
 This method takes a single integer as parameter that indicates by how many steps to go forward or go backward in the history stack, similar to `window.history.go(n)`.
 
@@ -94,7 +94,7 @@ router.go(-100)
 router.go(100)
 ```
 
-## History Manipulation
+## 履歴の操作
 
 You may have noticed that `router.push`, `router.replace` and `router.go` are counterparts of [`window.history.pushState`, `window.history.replaceState` and `window.history.go`](https://developer.mozilla.org/en-US/docs/Web/API/History), and they do imitate the `window.history` APIs.
 

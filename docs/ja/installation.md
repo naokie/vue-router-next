@@ -1,12 +1,12 @@
-# Installation
+# インストール
 
-## Direct Download / CDN
+## 直接ダウンロード／CDN
 
 [https://unpkg.com/vue-router@4](https://unpkg.com/vue-router@4)
 
 <!--email_off-->
 
-[Unpkg.com](https://unpkg.com) provides npm-based CDN links. The above link will always point to the latest release on npm. You can also use a specific version/tag via URLs like `https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js`.
+[Unpkg.com](https://unpkg.com) は、npm ベースの CDN リンクを提供します。上記のリンクは常に npm の最新リリースを指しています。また `https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js` のような URL を介して、特定のバージョン／タグを使うこともできます。
 
 <!--/email_off-->
 

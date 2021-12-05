@@ -1,22 +1,22 @@
-# Introduction
+# イントロダクション
 
-Vue Router is the official router for [Vue.js](http://v3.vuejs.org). It deeply integrates with Vue.js core to make building Single Page Applications with Vue.js a breeze. Features include:
+Vue Router は [Vue.js](http://v3.vuejs.org) 公式ルータです。Vue.js のコアと深く統合されていて、Vue.js を使ったシングルページアプリケーションを簡単に構築できます。機能は以下のとおりです:
 
-- Nested routes mapping
-- Dynamic Routing
-- Modular, component-based router configuration
-- Route params, query, wildcards
-- View transition effects powered by Vue.js' transition system
-- Fine-grained navigation control
-- Links with automatic active CSS classes
-- HTML5 history mode or hash mode
-- Customizable Scroll Behavior
-- Proper encoding for URLs
+- ネストしたルートのマッピング
+- 動的ルーティング
+- モジュラ、コンポーネントベースのルータ構成
+- ルートのパラメータ、クエリ、ワイルドカード
+- Vue.js のトランジションシステムによるトランジション効果の表示
+- きめ細かなナビゲーションの制御
+- 自動的にアクティブな CSS クラスを持つリンク
+- HTML5 のヒストリーモードやハッシュモード
+- カスタマイズ可能なスクロールの振る舞い
+- URL の適切なエンコーディング
 
-[Get started](./guide/) or play with the [playground](https://github.com/vuejs/vue-router-next/tree/master/playground) (see [`README.md`](https://github.com/vuejs/vue-router-next) to run them).
+[はじめよう](./guide/) または [プレイグラウンド](https://github.com/vuejs/vue-router-next/tree/master/playground) で遊ぶことができます（実行するには [`README.md`](https://github.com/vuejs/vue-router-next) を参照してください）。
 
 <HomeSponsors />
 
 <script setup>
-import HomeSponsors from './.vitepress/components/HomeSponsors.vue'
+import HomeSponsors from '../.vitepress/components/HomeSponsors.vue'
 </script>

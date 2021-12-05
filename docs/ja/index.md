@@ -2,22 +2,22 @@
 home: true
 
 heroImage: /logo.png
-actionText: Get Started →
+actionText: はじめよう →
 actionLink: /installation.html
 
 features:
-  - title: 🛣 Expressive route syntax
-    details: Define static and dynamic routes with an intuitive and powerful syntax.
-  - title: 🛑 Fine-grained Navigation control
-    details: Intercept any navigation and precisely control its outcome.
-  - title: 🧱 Component-based configuration
-    details: Map each route to the component that should display.
-  - title: 🔌 History modes
-    details: Choose between HTML5, Hash or Memory history modes.
-  - title: 🎚 Scroll control
-    details: Precisely control the scroll position in every page.
-  - title: 🌐 Automatic Encoding
-    details: Directly use unicode characters (你好) in your code.
+  - title: 🛣 表現力豊かなルートの構文
+    details: 直感的で強力な構文により静的と動的なルートを定義します。
+  - title: 🛑 きめ細かなナビゲーションの制御
+    details: あらゆるナビゲーションを傍受して、結果を的確に制御できます。
+  - title: 🧱 コンポーネントベースの構成
+    details: 各ルートを表示すべきコンポーネントにマッピングします。
+  - title: 🔌 ヒストリーモード
+    details: HTML5、ハッシュ、メモリの3つのモードから選択可能です。
+  - title: 🎚 スクロールの制御
+    details: すべてのページのスクロール位置を的確に制御します。
+  - title: 🌐 自動エンコーディング
+    details: コードの中でユニコード文字（你好）を直接使います。
 
 footer: MIT Licensed | Copyright © 2014-present Evan You, Eduardo San Martin Morote
 ---
@@ -25,5 +25,5 @@ footer: MIT Licensed | Copyright © 2014-present Evan You, Eduardo San Martin Mo
 <HomeSponsors />
 
 <script setup>
-import HomeSponsors from './.vitepress/components/HomeSponsors.vue'
+import HomeSponsors from '../.vitepress/components/HomeSponsors.vue'
 </script>

@@ -30,6 +30,11 @@ const config = defineConfig({
       title: 'Vue Router',
       description: 'Vue.js 的官方路由',
     },
+    '/ja/': {
+      lang: 'ja-JP',
+      title: 'Vue Router',
+      description: 'Vue.js の公式ルータ',
+    },
   },
 
   themeConfig: {
@@ -315,6 +320,136 @@ const config = defineConfig({
           {
             text: '从 Vue2 迁移',
             link: '/zh/guide/migration/index.html',
+          },
+        ],
+      },
+      // 日本語
+      '/ja/': {
+        label: '日本語',
+        selectText: '言語',
+        nav: [
+          {
+            text: 'ガイド',
+            link: '/ja/guide/',
+          },
+          {
+            text: 'APIリファレンス',
+            link: '/ja/api/',
+          },
+          {
+            text: 'v4.x',
+            items: [{ text: 'v3.x', link: 'https://router.vuejs.org/ja' }],
+          },
+          {
+            text: '更新ログ',
+            link: 'https://github.com/vuejs/vue-router-next/blob/master/CHANGELOG.md',
+          },
+        ],
+
+        sidebar: [
+          {
+            text: 'イントロダクション',
+            link: '/ja/introduction.html',
+          },
+          {
+            text: 'インストール',
+            link: '/ja/installation.html',
+          },
+          {
+            text: 'エッセンシャル',
+            collapsable: false,
+            children: [
+              {
+                text: 'はじめよう',
+                link: '/ja/guide/',
+              },
+              {
+                text: '動的ルートマッチング',
+                link: '/ja/guide/essentials/dynamic-matching.html',
+              },
+              {
+                text: 'ルートのマッチング構文',
+                link: '/ja/guide/essentials/route-matching-syntax.html',
+              },
+              {
+                text: 'ネストしたルート',
+                link: '/ja/guide/essentials/nested-routes.html',
+              },
+              {
+                text: 'プログラムによるナビゲーション',
+                link: '/ja/guide/essentials/navigation.html',
+              },
+              {
+                text: '名前付きルート',
+                link: '/ja/guide/essentials/named-routes.html',
+              },
+              {
+                text: '名前付きビュー',
+                link: '/ja/guide/essentials/named-views.html',
+              },
+              {
+                text: 'リダイレクトとエイリアス',
+                link: '/ja/guide/essentials/redirect-and-alias.html',
+              },
+              {
+                text: 'ルートコンポーネントへのプロパティの受け渡し',
+                link: '/ja/guide/essentials/passing-props.html',
+              },
+              {
+                text: 'ヒストリーモードの違い',
+                link: '/ja/guide/essentials/history-mode.html',
+              },
+            ],
+          },
+          {
+            text: 'アドバンスド',
+            collapsable: false,
+            children: [
+              {
+                text: 'ナビゲーションガード',
+                link: '/ja/guide/advanced/navigation-guards.html',
+              },
+              {
+                text: 'ルートメタフィールド',
+                link: '/ja/guide/advanced/meta.html',
+              },
+              {
+                text: 'データフェッチ',
+                link: '/ja/guide/advanced/data-fetching.html',
+              },
+              {
+                text: 'Composition API',
+                link: '/ja/guide/advanced/composition-api.html',
+              },
+              {
+                text: 'トランジション',
+                link: '/ja/guide/advanced/transitions.html',
+              },
+              {
+                text: 'スクロールの振る舞い',
+                link: '/ja/guide/advanced/scroll-behavior.html',
+              },
+              {
+                text: '遅延読み込みルート',
+                link: '/ja/guide/advanced/lazy-loading.html',
+              },
+              {
+                text: 'RouterLink の拡張',
+                link: '/ja/guide/advanced/extending-router-link.html',
+              },
+              {
+                text: 'ナビゲーションの失敗',
+                link: '/ja/guide/advanced/navigation-failures.html',
+              },
+              {
+                text: '動的ルーティング',
+                link: '/ja/guide/advanced/dynamic-routing.html',
+              },
+            ],
+          },
+          {
+            text: 'Vue2 からの移行',
+            link: '/ja/guide/migration/index.html',
           },
         ],
       },

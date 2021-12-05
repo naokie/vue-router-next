@@ -1,11 +1,11 @@
-# Dynamic Route Matching with Params
+# パラメータを使った動的ルートマッチング
 
 <VueSchoolLink 
   href="https://vueschool.io/lessons/dynamic-routes"
   title="Learn about dynamic route matching with params"
 />
 
-Very often we will need to map routes with the given pattern to the same component. For example we may have a `User` component which should be rendered for all users but with different user IDs. In Vue Router we can use a dynamic segment in the path to achieve that, we call that a _param_:
+とても多くの場合で、与えられたパターンのルートを同じコンポーネントにマッピングする必要があるでしょう。例えば、`User` コンポーネントがすべてのユーザに対してレンダリングされなければいけませんが、それぞれユーザ ID は異なります。Vue Router では、これを実現するためにパスの中に動的なセグメントを使うことができ、これを _パラメータ_ と呼びます:
 
 ```js
 const User = {
@@ -19,9 +19,9 @@ const routes = [
 ]
 ```
 
-Now URLs like `/users/johnny` and `/users/jolyne` will both map to the same route.
+これで `/users/johnny` と `/users/jolyne` のような URL は、どちらも同じルートにマッピングされます。
 
-A _param_ is denoted by a colon `:`. When a route is matched, the value of its _params_ will be exposed as `this.$route.params` in every component. Therefore, we can render the current user ID by updating `User`'s template to this:
+_パラメータ_ はコロン `:` で示されます。ルートがマッチすると、その _パラメータ_ の値はすべてのコンポーネントで `this.$route.params` として公開されます。したがって、`User` のテンプレートを `this.$route.params` に更新することで、現在のユーザ ID を表示することができます:
 
 ```js
 const User = {
@@ -29,16 +29,16 @@ const User = {
 }
 ```
 
-You can have multiple _params_ in the same route, and they will map to corresponding fields on `$route.params`. Examples:
+同じルートに複数の _パラメータ_ を設定することができ、それらは `$route.params` の対応するフィールドにマッピングされます。例えば:
 
-| pattern                        | matched path             | \$route.params                           |
+| パターン                        | マッチしたパス             | \$route.params                           |
 | ------------------------------ | ------------------------ | ---------------------------------------- |
 | /users/:username               | /users/eduardo           | `{ username: 'eduardo' }`                |
 | /users/:username/posts/:postId | /users/eduardo/posts/123 | `{ username: 'eduardo', postId: '123' }` |
 
-In addition to `$route.params`, the `$route` object also exposes other useful information such as `$route.query` (if there is a query in the URL), `$route.hash`, etc. You can check out the full details in the [API Reference](../../api/#routelocationnormalized).
+`$route.params` に加えて、`$route` オブジェクトは `$route.query`（URL にクエリがある場合）、`$route.hash` など、その他の有用な情報も公開します。すべての詳細は [API リファレンス](../../api/#routelocationnormalized) で確認できます。
 
-A working demo of this example can be found [here](https://codesandbox.io/s/route-params-vue-router-examples-mlb14?from-embed&initialpath=%2Fusers%2Feduardo%2Fposts%2F1).
+この例の動作デモは [こちら](https://codesandbox.io/s/route-params-vue-router-examples-mlb14?from-embed&initialpath=%2Fusers%2Feduardo%2Fposts%2F1) にあります。
 
 <!-- <iframe
   src="https://codesandbox.io/embed//route-params-vue-router-examples-mlb14?fontsize=14&theme=light&view=preview&initialpath=%2Fusers%2Feduardo%2Fposts%2F1"
@@ -48,16 +48,16 @@ A working demo of this example can be found [here](https://codesandbox.io/s/rout
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe> -->
 
-## Reacting to Params Changes
+## Params の変更検知
 
 <VueSchoolLink 
   href="https://vueschool.io/lessons/reacting-to-param-changes"
   title="Learn how to react to param changes"
 />
 
-One thing to note when using routes with params is that when the user navigates from `/users/johnny` to `/users/jolyne`, **the same component instance will be reused**. Since both routes render the same component, this is more efficient than destroying the old instance and then creating a new one. **However, this also means that the lifecycle hooks of the component will not be called**.
+ルートのパラメータを使う際に特筆すべき点は、ユーザが `/users/johnny` から `/users/jolyne` へ遷移するときに **同じコンポーネントインスタンスが再利用される** ということです。両方のルートが同じコンポーネントをレンダリングするため、古いインスタンスを破棄して新しいものを作成するよりも効率的です。**しかしながら、これはコンポーネントのライフサイクルフックが呼ばれないことを意味しています**。
 
-To react to params changes in the same component, you can simply watch anything on the `$route` object, in this scenario, the `$route.params`:
+同じコンポーネント内のパラメータの変更を検知するには、単純に `$route` オブジェクトの何かを監視することでできます。このシナリオでは、`$route.params` を監視します:
 
 ```js
 const User = {
@@ -73,7 +73,7 @@ const User = {
 }
 ```
 
-Or, use the `beforeRouteUpdate` [navigation guard](../advanced/navigation-guards.md), which also allows to cancel the navigation:
+または、ナビゲーションをキャンセルすることもできる `beforeRouteUpdate` [ナビゲーションガード](../advanced/navigation-guards.md) を使ってください:
 
 ```js
 const User = {
@@ -85,14 +85,14 @@ const User = {
 }
 ```
 
-## Catch all / 404 Not found Route
+## すべてをキャッチ／404 Not found ルート
 
 <VueSchoolLink 
   href="https://vueschool.io/lessons/404-not-found-page"
   title="Learn how to make a catch all/404 not found route"
 />
 
-Regular params will only match characters in between url fragments, separated by `/`. If we want to match **anything**, we can use a custom _param_ regexp by adding the regexp inside parentheses right after the _param_:
+通常のパラメータは `/` で区切られた URL フラグメントの間の文字にのみマッチします。**何にでも** マッチさせたい場合、_パラメータ_ の直後のカッコ内に正規表現を追加することで、カスタム _パラメータ_ 正規表現を使うことができます:
 
 ```js
 const routes = [
@@ -103,7 +103,7 @@ const routes = [
 ]
 ```
 
-In this specific scenario we are using a [custom regexp](./route-matching-syntax.md#custom-regexp-in-params) between parentheses and marking the `pathMatch` param as [optionally repeatable](./route-matching-syntax.md#optional-parameters). This allows us to directly navigate to the route if we need to by splitting the `path` into an array:
+このシナリオでは、カッコの間に [カスタム正規表現](./route-matching-syntax.md#custom-regexp-in-params) を使い、`pathMatch` パラメータを [任意で繰り返し可能](./route-matching-syntax.md#optional-parameters) としてマークしています。これにより `path` を配列に分割することで、必要に応じてルートに直接ナビゲートすることができます:
 
 ```js
 this.$router.push({
@@ -116,10 +116,10 @@ this.$router.push({
 })
 ```
 
-See more in the [repeated params](./route-matching-syntax.md#repeatable-params) section.
+詳しくは [繰り返し可能なパラメータ](./route-matching-syntax.md#repeatable-params) セクションを参照してください。
 
-If you are using [History mode](./history-mode.md), make sure to follow the instructions to correctly configure your server as well.
+[ヒストリーモード](./history-mode.md) を使っている場合は、必ず指示に従ってサーバも正しく設定してください。
 
-## Advanced Matching Patterns
+## 高度なマッチングパターン
 
-Vue Router uses its own path matching syntax, inspired by the one used by `express`, so it supports many advanced matching patterns such as optional params, zero or more / one or more requirements, and even custom regex patterns. Please check the [Advanced Matching](./route-matching-syntax.md) documentation to explore them.
+Vue Router は、`express` で使われているものに触発された独自のパスマッチング構文を使っているため、省略可能なパラメータ、0個以上／1個以上の要件、さらにはカスタム正規表現パターンなど、多くの高度なマッチングパターンをサポートしています。それらを調べるには [高度なマッチングパターン](./route-matching-syntax.md) ドキュメントを確認してください。

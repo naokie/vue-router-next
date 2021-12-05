@@ -1,14 +1,14 @@
-# Routes' Matching Syntax
+# ルートのマッチング構文
 
-Most applications will use static routes like `/about` and dynamic routes like `/users/:userId` like we just saw in [Dynamic Route Matching](./dynamic-matching.md), but Vue Router has much more to offer!
+ほとんどのアプリケーションでは、`/about` のような静的ルートや、さきほどの [動的ルートマッチング](./dynamic-matching.md) で見た `/users/:userId` のような動的ルートを使いますが、Vue Router にはもっと多くの機能があります。
 
 :::tip
-For the sake of simplicity, all route records **are omitting the `component` property** to focus on the `path` value.
+簡略化のため、すべてのルートレコードでは **`component` プロパティを省略して** `path` の値に焦点を当てています。
 :::
 
-## Custom Regexp in params
+## パラメータのカスタム正規表現
 
-When defining a param like `:userId`, we internally use the following regexp `([^/]+)` (at least one character that isn't a slash `/`) to extract params from URLs. This works well unless you need to differentiate two routes based on the param content. Imagine two routes `/:orderId` and `/:productName`, both would match the exact same URLs, so we need a way to differentiate them. The easiest way would be to add a static section to the path that differentiates them:
+`:userId` のようなパラメータを定義する場合、内部的には次のような正規表現 `([^/]+)`（スラッシュ `/` 以外の少なくとも1文字）を使って、URL からパラメータを抽出しています。これはパラメータの内容に基づいて2つのルートを区別する必要がある場合を除いて、うまく機能します。2つのルート `/:orderId` と `/:productName` を想像してみてください。どちらもまったく同じ URL にマッチするので、それらを区別する方法が必要です。もっとも簡単な方法は、それらを区別する静的セクションをパスに追加することです:
 
 ```js
 const routes = [
@@ -19,7 +19,7 @@ const routes = [
 ]
 ```
 
-But in some scenarios we don't want to add that static section `/o`/`p`. However, `orderId` is always a number while `productName` can be anything, so we can specify a custom regexp for a param in parentheses:
+しかし、いくつかのシナリオでは、その静的セクション `/o` や `/p` を追加したくありません。`orderId` は常に数字であるのに対して、`productName` は何でもいいので、カッコの中のパラメータにカスタム正規表現を指定することができます:
 
 ```js
 const routes = [
@@ -30,15 +30,15 @@ const routes = [
 ]
 ```
 
-Now, going to `/25` will match `/:orderId` while going to anything else will match `/:productName`. The order of the `routes` array doesn't even matter!
+これで `/25` に遷移すると `/:orderId` にマッチして、それ以外では `/:productName` にマッチするようになります。`routes` 配列の順番は問題ではありません。
 
 :::tip
-Make sure to **escape backslashes (`\`)** like we did with `\d` (becomes `\\d`) to actually pass the backslash character in a string in JavaScript.
+JavaScript で文字列中のバックスラッシュを実際に渡すには `\d`（`\\d` になる）のように、必ず **バックスラッシュ（`\`）をエスケープ** してください。
 :::
 
-## Repeatable params
+## 繰り返し可能なパラメータ
 
-If you need to match routes with multiple sections like `/first/second/third`, you should mark a param as repeatable with `*` (0 or more) and `+` (1 or more):
+もし `/first/second/third` のように複数のセクションを持つルートにマッチさせる必要がある場合は、`*`（0個以上）と `+`（1個以上）でパラメータを繰り返し可能とマークしてください:
 
 ```js
 const routes = [
@@ -49,7 +49,7 @@ const routes = [
 ]
 ```
 
-This will give you an array of params instead of a string and will also require you to pass an array when using named routes:
+これにより、文字列の代わりにパラメータの配列が得られます。また、名前付きルートを使う場合は、配列を渡す必要があります:
 
 ```js
 // given { path: '/:chapters*', name: 'chapters' },
@@ -63,7 +63,7 @@ router.resolve({ name: 'chapters', params: { chapters: [] } }).href
 // throws an Error because `chapters` is empty
 ```
 
-These can also be combined with custom Regexp by adding them **after the closing parentheses**:
+これらはカスタム正規表現と組み合わせることも可能で、**閉じたカッコの後** に追加します:
 
 ```js
 const routes = [
@@ -75,9 +75,9 @@ const routes = [
 ]
 ```
 
-## Optional parameters
+## 省略可能なパラメータ
 
-You can also mark a parameter as optional by using the `?` modifier (0 or 1):
+`?` 修飾子（0または1）を使って、パラメータをオプションとしてマークすることもできます:
 
 ```js
 const routes = [
@@ -88,8 +88,8 @@ const routes = [
 ]
 ```
 
-Note that `*` technically also marks a parameter as optional but `?` parameters cannot be repeated.
+技術的には `*` もパラメータを省略可能とマークしますが、`?` パラメータは繰り返すことができません。
 
-## Debugging
+## デバッグ
 
-If you need to dig how your routes are transformed into Regexp to understand why a route isn't being matched or, to report a bug, you can use the [path ranker tool](https://paths.esm.dev/?p=AAMeJSyAwR4UbFDAFxAcAGAIJXMAAA..#). It supports sharing your routes through the URL.
+どうしてルートがマッチしないかを理解するために、ルートがどのように正規表現に変換されているかを調べる必要がある場合や、バグを報告する場合は [Path Ranker ツール](https://paths.esm.dev/?p=AAMeJSyAwR4UbFDAFxAcAGAIJXMAAA..#) を使うことができます。このツールは URL を介したルートの共有をサポートしています。

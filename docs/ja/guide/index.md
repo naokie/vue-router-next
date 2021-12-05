@@ -1,4 +1,4 @@
-# Getting Started
+# はじめよう
 
 <VueMasteryVideo
   title="Get Started with Vue Router"
@@ -7,10 +7,10 @@
 />
 
 <script setup>
-  import VueMasteryVideo from '../.vitepress/components/VueMasteryVideo.vue'
+  import VueMasteryVideo from '../../.vitepress/components/VueMasteryVideo.vue'
   </script>
 
-Creating a Single-page Application with Vue + Vue Router feels natural: with Vue.js, we are already composing our application with components. When adding Vue Router to the mix, all we need to do is map our components to the routes and let Vue Router know where to render them. Here's a basic example:
+Vue と Vue Router でシングルページアプリケーション作ることは驚くほど簡単です。わたしたちはすでに Vue.js のコンポーネントでアプリケーションを構成しています。Vue Router と組み合わせるときに必要なのは、コンポーネントをルートにマッピングして、どこでレンダリングするかを Vue Router に知らせることだけです。これが基本的な例です:
 
 ## HTML
 
@@ -35,11 +35,11 @@ Creating a Single-page Application with Vue + Vue Router feels natural: with Vue
 
 ### `router-link`
 
-Note how instead of using regular `a` tags, we use a custom component `router-link` to create links. This allows Vue Router to change the URL without reloading the page, handle URL generation as well as its encoding. We will see later how to benefit from these features.
+通常の `a` タグを使う代わりに、カスタムコンポーネントの `router-link` でリンクを作成していることに注意してください。これにより Vue Router はページをリロードせずに URL を変更したり、URL の生成やエンコーディングを処理することができます。これらの機能をどのように活用するかは後述します。
 
 ### `router-view`
 
-`router-view` will display the component that corresponds to the url. You can put it anywhere to adapt it to your layout.
+`router-view` は、URL に対応するコンポーネントを表示します。これはどこにでも置いて、レイアウトに合わせることができます。
 
 ## JavaScript
 
@@ -77,7 +77,7 @@ app.mount('#app')
 // Now the app has started!
 ```
 
-By calling `app.use(router)`, we get access to it as `this.$router` as well as the current route as `this.$route` inside of any component:
+`app.use(router)` を呼び出すことで、どのコンポーネントの中でも `this.$router` として、現在のルートにアクセスできるようになります:
 
 ```js
 // Home.vue
@@ -100,6 +100,6 @@ export default {
 }
 ```
 
-To access the router or the route inside the `setup` function, call the `useRouter` or `useRoute` functions. We will learn more about this in [the Composition API](./advanced/composition-api.md#accessing-the-router-and-current-route-inside-setup)
+`setup` 関数の内部でルータやルートにアクセスするには、`useRouter` 関数や `useRoute` 関数を呼び出します。これについては [Composition API](./advanced/composition-api.md#accessing-the-router-and-current-route-inside-setup) で詳しく説明します。
 
-Throughout the docs, we will often use the `router` instance. Keep in mind that `this.$router` is exactly the same as directly using the `router` instance created through `createRouter`. The reason we use `this.$router` is because we don't want to import the router in every single component that needs to manipulate routing.
+このドキュメントの中では、しばしば `router` インスタンスを使います。`this.$router` は `createRouter` で作成した `router` インスタンスを直接使うのとまったく同じであることを覚えておいてください。`this.$router` を使う理由は、ルーティングを操作する必要のあるすべての単体コンポーネントで、ルータをインポートしたくないからです。
